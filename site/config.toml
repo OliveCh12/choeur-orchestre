@@ -1,9 +1,37 @@
 baseurl = "/"
 languageCode = "en-us"
 languageLang = "en"
-title = "My new Victor-Hugo site"
+title = "Choeur & Orchestre"
 
 # RSS, categories and tags disabled for an easy start
 # See configuration options for more details: 
 # https://gohugo.io/getting-started/configuration/#toml-configuration
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+
+
+[menu]
+
+  [[menu.main]]
+    name = "Accueil"
+    url = "/"
+    weight = 1
+
+    [[menu.main]]
+    name = "Concerts"
+    url = "/concerts/"
+    weight = 2
+
+    [[menu.main]]
+    name = "Actualités"
+    url = "/news/"
+    weight = 3
+
+    [[menu.main]]
+    name = "Activités"
+    url = "/activities/"
+    weight = 3
+
+    [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 4
