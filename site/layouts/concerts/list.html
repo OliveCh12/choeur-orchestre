@@ -1,0 +1,51 @@
+{{ define "main" }}
+<main>
+    <div class="container">
+        <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+        <header>
+            <h1>{{.Title}}</h1>
+            {{.Content}}
+        </header>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Prochainement</h2>
+                <hr>
+                <!-- Ranges through content/news/*.md -->
+                {{ range first 10 .Pages }}
+                <h3><a href="{{.Permalink}}">{{.Title}}</a></h3>
+                <div class="news_meta">
+                       <span>{{ .PublishDate.Format "January 2, 2006" }}</span>
+                </div>
+                <br>
+                <p>{{slicestr .Summary 0 200}}...</p>
+                <div class="text-right">
+                    <a class="btn btn-outline-primary btn-sm" href="{{.Permalink}}">READ MORE</a>
+                </div>
+                <hr>
+                {{ end }}
+            </div>
+            <div class="col-md-4">
+                    <h2>Précédement</h2>
+                    <hr>
+                    {{ range first 10 .Pages }}
+                    <h3><a href="{{.Permalink}}">{{.Title}}</a></h3>
+                    <div class="news_meta">
+                        <span>By: Jordan Myller </span>//
+                        <span class="badge badge-primary">{{ .PublishDate.Format "January 2, 2006" }}</span>
+                    </div>
+                    <br>
+                    <p>{{ .Summary }}</p>
+                    <div class="text-right">
+                        <a class="btn btn-outline-primary btn-sm" href="{{.Permalink}}">READ MORE</a>
+                    </div>
+                    <hr>
+                    {{ end }}
+
+            </div>
+        </div>
+    </div>
+</main>
+{{ end }}
