@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
-
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  
+
 }
 
 .wrapper {
@@ -14,6 +12,7 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
 .not-found {
   display: flex;
   justify-content: center;
@@ -21,9 +20,13 @@ body {
   flex-direction: column;
   flex-grow: 1;
   text-align: center;
-  background-color: red;
 }
-footer{
+
+p {
+  opacity: 0.8;
+}
+
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +34,8 @@ footer{
   background-color: #393e46;
   height: 50px;
 }
-.footer-down{
+
+.footer-down {
   font-size: 10pt;
   text-align: center;
 }
