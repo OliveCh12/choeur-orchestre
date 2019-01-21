@@ -1,8 +1,9 @@
 ---
-title: "Great News & Events"
-date: 2019-01-20T22:15:30+01:00
-expiryDate: 2019-05-20T22:30:37+01:00
-adress: "12 rue Etienne Dolet, Suresnes, 92150, France"
+title: "Alfonzo des Medecis, Symphony"
+date: 2019-01-21T20:20:30+01:00
+expiryDate: 2019-02-20T22:30:37+01:00
+price: 10
+adress: "12 rue Etienne Dolet, Suresnes"
 draft: false
 ---
 

@@ -62,5 +62,8 @@
   },
   "resolutions": {
     "natives": "1.1.6"
+  },
+  "dependencies": {
+    "netlify-cms": "^2.3.3"
   }
 }

@@ -10,6 +10,10 @@ disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 
 disableHostCheck= false
 
+[taxonomies]
+price = 0
+adress = "adress"
+
 
 [menu]
 

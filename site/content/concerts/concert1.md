@@ -1,8 +1,9 @@
 ---
 title: "Let’s Talk: Gerontius"
-date: 2019-01-20T20:24:37+01:00
-expiryDate: 2019-01-20T20:24:37+01:00
-description: "Concerts de la premire parade et du sacre des gens."
+date: 2018-03-20T20:20:30+01:00
+expiryDate: 2019-02-20T22:30:37+01:00
+price: 15
+adress: "12 rue Etienne Dolet, Suresnes"
 draft: false
 ---
 
