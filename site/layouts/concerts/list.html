@@ -12,28 +12,29 @@
         <div class="row">
             <div class="col-md-8">
                 <h2>Prochainement</h2>
+                <br>
                 <!-- Ranges through content/news/*.md -->
                 {{ range first 3 .Pages }}
                 <div class="card mb-3">
                     <div class="card-body">
-                         <h3><a href="{{.Permalink}}">{{.Title}} </a><span class="badge badge-danger">New</span></h3>
+                         <h3><a class="text-dark" href="{{.Permalink}}">{{.Title}} </a><span class="badge badge-success">Nouveau</span></h3>
                 <div class="news_meta">
-                       <span class="text-secondary">{{ .PublishDate.Format "January 2, 2006" }}</span>
-                       //
+                       <span class="text-danger">{{ .PublishDate.Format "January 2, 2006" }}</span>
+                       &middot;
                        <span>{{ .Type }}</span>
-                       //
+                       &middot;
                        {{ if (isset .Params "price") }}
-                       <span>Ticket : {{ .Params.price }} €</span>
+                       <span>Entrée : {{ .Params.price }} €</span>
                         {{ else }}
-                       <span>Ticket : Gratuit</span>
+                       <span>Entrée : Gratuit</span>
                        {{ end }}
                        <br>
-                       <span>{{ .Params.adress }}</span>
+                       <span class="text-muted">{{ .Params.adress }}</span>
                 </div>
                 <br>
                 <p>{{slicestr .Summary 0 200}}...</p>
                 <div class="text-right">
-                    <a class="btn btn-outline-primary btn-sm" href="{{.Permalink}}">Discover</a>
+                    <a class="btn btn-dark btn-sm" href="{{.Permalink}}">Découvrir</a>
                 </div>
 
                     </div>
@@ -42,16 +43,14 @@
             </div>
             <div class="col-md-4">
                     <h2>Précédement</h2>
-                    <hr>
-                    {{ range after 3 .Pages  }}
-                    <h3><a class="text-secondary" href="{{.Permalink}}">{{.Title}}</a></h3>
-                    <div class="news_meta">
-                        <span class="badge badge-secondary">{{ .PublishDate.Format "January 2, 2006" }}</span>
-                    </div>
                     <br>
-                    <p>{{slicestr .Summary 0 100}}...</p>
+                    {{ range after 3 .Pages  }}
+                    <h3><a class="text-muted" href="{{.Permalink}}">{{.Title}}</a></h3>
+                    <span class="text-muted">{{ .PublishDate.Format "January 2, 2006" }}</span>
+                    <br><br>
+                    <p class="text-muted">{{slicestr .Summary 0 100}}...</p>
                     <div class="text-right">
-                        <a class="btn btn-outline-secondary btn-sm" href="{{.Permalink}}">READ MORE</a>
+                        <a class="btn text-muted" href="{{.Permalink}}">En savoir plus</a>
                     </div>
                     <hr>
                     {{ end }}

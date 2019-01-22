@@ -1,7 +1,7 @@
 baseurl = "/"
 languageCode = "en-us"
 languageLang = "en"
-title = "Choeur & Orchestre"
+title = "C&O"
 
 # RSS, categories and tags disabled for an easy start
 # See configuration options for more details: 
@@ -43,7 +43,7 @@ enddate = 2019-01-30T18:30:24.144Z
     name = "Historique"
     url = "/timeline/"
     weight = 4
-    
+
     # [[menu.main]]
     # name = "Contact"
     # url = "/contact/"

@@ -38,19 +38,19 @@ body {
   min-height: 150px;
 }
 h1 {
-  font-weight: 600;
+  font-weight: 700;
   font-family: 'Libre Baskerville', serif;
 
 }
 h3 {
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Asap', sans-serif;
+  font-weight: 600;
 
 }
 p {
   opacity: 0.8;
 
 }
-
 a:hover {
   text-decoration: none;
 }
@@ -67,6 +67,7 @@ footer {
   color: #fff;
   background-color: #393e46;
   height: 50px;
+  font-size: 10pt;
 }
 
 .footer-down {
