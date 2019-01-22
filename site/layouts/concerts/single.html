@@ -1,13 +1,10 @@
 {{ define "main" }}
-<div class="container">
+<div class="container" id="single">
     <div class="row">
         <div class="col-md-8">
             <article id="main">
                 <h1 class="">{{ .Title }}</h1>
-                <div class="news_meta">
-                    <span>By: Jordan Myller </span>//
-                    <span class="badge badge-primary">{{ .PublishDate.Format "January 2, 2006" }}</span>
-                </div>
+                <h4 class="text-muted">{{ .PublishDate.Format "Monday, January 2, 2006" }}</h4>
                 <hr>
                 <div>
                     <article id="content">
@@ -21,17 +18,17 @@
                 <section>
                 <div class="card">
                         <div class="card-body">
-                          <h5 class="card-title"><i class="far fa-calendar-alt"></i> {{ .Date.Format "Monday Jan 2, 2006" }}</h5>
-                          <h6 class="card-subtitle mb-2 text-muted"><i class="far fa-clock"></i> {{ .Date.Format "15:04" }} à {{ .ExpiryDate.Format "15:04"}}</h6>
-                          <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ .Params.adress }}</p>
+                          <h5 class="card-title">{{ .Date.Format "Monday Jan 2, 2006" }}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted"><i class="far fa-clock mr-2"></i>Début : {{ .Date.Format "15:04"}}</h6>
+                          <hr>
+                          <p class="card-text"><i class="fas fa-map-marker-alt mr-2"></i> {{ .Params.adress }}</p>
+                          <hr>
                           {{ if ( isset .Params "price") }}
-                          <p class="card-text"><i class="fas fa-ticket-alt"></i> Ticket : {{ .Params.price }} €</p>
+                          <p class="card-text"><i class="fas fa-ticket-alt mr-2"></i> Entrée : {{ .Params.price }} €</p>
                           {{ else }}   
-                          <p class="card-text"><i class="fas fa-ticket-alt"></i> Ticket : Gratuit</p>
+                          <p class="card-text"><i class="fas fa-ticket-alt"></i> Entrée : Gratuit</p>
                           {{ end }}
-                          <a href="#" class="card-link">Get Ticket</a>
                         </div>
-                        <img src="" class="card-img-top" alt="...">
                       </div>
                     </section>
                     {{ with .Params.topics }}

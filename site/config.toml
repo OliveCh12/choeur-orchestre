@@ -13,6 +13,8 @@ disableHostCheck= false
 [taxonomies]
 price = 0
 adress = "adress"
+startdate = 2019-01-30T18:30:24.144Z
+enddate = 2019-01-30T18:30:24.144Z
 
 
 [menu]
@@ -41,8 +43,8 @@ adress = "adress"
     name = "Historique"
     url = "/timeline/"
     weight = 4
-
-    [[menu.main]]
-    name = "Contact"
-    url = "/contact/"
-    weight = 5
+    
+    # [[menu.main]]
+    # name = "Contact"
+    # url = "/contact/"
+    # weight = 5

@@ -1,12 +1,12 @@
 {{ define "main" }}
 <main>
-    <div class="container">
-        <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
-        <header>
-            <h1>{{.Title}}</h1>
-            <hr>
-        </header>
-        {{.Content}}
+        <header class="main__header">
+                <div class="container">
+                  <h1>{{.Title}}</h1>
+                  {{.Content}}
+              </div>
+              </header>
+    <div class="container" id="single">
         <div class="row">
             <div class="col-md-8">
                 <!-- Ranges through content/news/*.md -->
