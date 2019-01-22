@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Asap|Libre+Baskerville');
+
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
   background-color: #f5f5f5;
+  font-family: 'Asap', sans-serif;
 
 }
 
@@ -36,9 +39,16 @@ body {
 }
 h1 {
   font-weight: 600;
+  font-family: 'Libre Baskerville', serif;
+
+}
+h3 {
+  font-family: 'Libre Baskerville', serif;
+
 }
 p {
   opacity: 0.8;
+
 }
 
 a:hover {
