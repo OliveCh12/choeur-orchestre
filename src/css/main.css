@@ -40,12 +40,9 @@ body {
 
 h1 {
   font-weight: 700;
-  font-family: 'Asap', serif;
-
 }
 
 h3 {
-  font-family: 'Asap', sans-serif;
   font-weight: 600;
 }
 
@@ -81,6 +78,7 @@ footer {
   font-size: 10pt;
   text-align: center;
 }
+
 .card {
   border-radius: inherit !important;
 }
@@ -94,11 +92,23 @@ footer {
 label {
   font-weight: 600;
 }
+
 .form-control {
   border-radius: inherit !important;
 }
-.form-control:focus{
+
+.form-control:focus {
   box-shadow: inherit !important;
+}
+
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  border-color: #80bdff !important;
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border-color: #ea5967 !important;
 }
 
 /* Modal Control */
