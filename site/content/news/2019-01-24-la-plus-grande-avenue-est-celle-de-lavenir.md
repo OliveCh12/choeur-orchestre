@@ -18,6 +18,6 @@ Je suis dors et déjà certain que cela fonctionne dans le même sens que d'autr
 
 > Qui pourrait comprendre ce qu'il se passe, sans le savoir vraiment  le savoir.
 
-Pour retrouvez, toute nos vidéos, veuillez cliquer sur ce lien : [Nos vidéos](google.fr)
+Pour retrouvez, toute nos vidéos, veuillez cliquer sur ce lien : [Nos vidéos](https://www.google.fr)
 
 Encore merci de votre visite et nous vous souhaitons un agréable moment. Bien à vous.
