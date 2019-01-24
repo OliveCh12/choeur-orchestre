@@ -21,3 +21,9 @@ Je suis dors et déjà certain que cela fonctionne dans le même sens que d'autr
 Pour retrouvez, toute nos vidéos, veuillez cliquer sur ce lien : [Nos vidéos](https://www.google.fr)
 
 Encore merci de votre visite et nous vous souhaitons un agréable moment. Bien à vous.
+
+### Grande aparté sur la vision
+
+Se prétendant la fille de l'impératrice Élisabeth Ire et de son amant Alexis Razoumovski, elle déclare ses prétentions au trône russe en 1774 et reçoit quelque temps le soutien de partisans de la confédération de Bar. Elle est enlevée à Livourne sur l'ordre de l'impératrice Catherine II par Alexeï Orlov et amenée à Saint-Pétersbourg. Emprisonnée à la forteresse Pierre-et-Paul, elle y meurt sans avoir reconnu son imposture ni dévoilé sa véritable origine.
+
+Elle a usé d'autres identités, se faisant appeler selon les circonstances Fräulein Frank, Lady Shelley, Madame Scholl, Madame de la Trémoille, princesse de Volodomir (en russe : принцесса Володимирская) ou encore princesse d'Azov.
