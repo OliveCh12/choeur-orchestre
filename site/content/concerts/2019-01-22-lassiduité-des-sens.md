@@ -1,6 +1,7 @@
 ---
+layout: event
 title: L'assiduité des sens
-type: Concert
+type: event
 date: 2019-04-16T14:00:18.015Z
 adress: '45 rue des anges de la soie, 75009'
 price: '10'

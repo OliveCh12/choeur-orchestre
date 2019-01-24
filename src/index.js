@@ -1,7 +1,7 @@
 // JS Goes here - ES6 supported
 import "./css/main.css";
+import "./js/polygon.js"
 
-// import CMS from 'netlify-cms'
+const getDate = document.querySelector('#')
 
-// // Now the registry is available via the CMS object.
-// CMS.registerPreviewTemplate('my-template', MyTemplate)
+import dateNotification from './js/polygon'

@@ -1,12 +1,13 @@
 {{ define "main" }}
-<div class="container">
+<div class="container" id="single">
     <div class="row">
         <div class="col-md-8">
             <article id="main">
                 <h1 class="">{{ .Title }}</h1>
                 <div class="news_meta">
+                <h4 class="text-muted">{{ .PublishDate.Format "Monday, January 2, 2006" }}</h4>
+
                     <span>By: Jordan Myller </span>//
-                    <span class="badge badge-primary">{{ .PublishDate.Format "January 2, 2006" }}</span>
                 </div>
                 <hr>
                 <div>

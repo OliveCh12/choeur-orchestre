@@ -1,6 +1,6 @@
 ---
+layout: 
 title: Rassemblement des nations
-type: Événement
 date: 2019-02-14T18:00:32.353Z
 adress: '34 Avenue du Général de Gaulle, 75001, Paris'
 price: '0'

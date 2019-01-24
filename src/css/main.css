@@ -37,20 +37,27 @@ body {
   align-items: center;
   min-height: 150px;
 }
+
 h1 {
   font-weight: 700;
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Asap', serif;
 
 }
+
 h3 {
   font-family: 'Asap', sans-serif;
   font-weight: 600;
-
 }
+
+h5 {
+  font-weight: bolder;
+}
+
 p {
   opacity: 0.8;
 
 }
+
 a:hover {
   text-decoration: none;
 }
@@ -73,4 +80,23 @@ footer {
 .footer-down {
   font-size: 10pt;
   text-align: center;
+}
+.card {
+  border-radius: inherit !important;
+}
+
+.map {
+  height: 400px;
+  width: 100%;
+}
+
+/* Forms Control */
+label {
+  font-weight: 600;
+}
+.form-control {
+  border-radius: inherit !important;
+}
+.form-control:focus{
+  box-shadow: inherit !important;
 }

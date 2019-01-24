@@ -1,31 +1,19 @@
 {{ define "main" }}
-<main>
-        <header class="main__header">
-                <div class="container">
-                    <h1>{{.Title}}</h1>
-                    {{.Content}}
-                </div>
-            </header>
+<header class="main__header">
     <div class="container">
+        <h1>{{.Title}}</h1>
         {{.Content}}
-        <div class="row">
-            <div class="col-md-8">
-                <!-- Ranges through content/news/*.md -->
+    </div>
+</header>
+<main>
+    <div class="container" id="single">
+        <div class="timeline-container timeline-theme-1">
+            <div class="timeline js-timeline">
                 {{ range .Pages }}
-                <h3><a href="{{.Permalink}}">{{.Title}}</a></h3>
-                <div class="news_meta">
-                    <span class="badge badge-primary">{{ .PublishDate.Format "January 2, 2006" }}</span>
+                <div data-time='{{ .Date.Format "2006" }}'>
+                    your content or markup
                 </div>
-                <br>
-                <p>{{ .Summary }}</p>
-                <div class="text-right">
-                    <a class="btn btn-outline-dark btn-sm" href="{{.Permalink}}">READ MORE</a>
-                </div>
-                <hr>
                 {{ end }}
-            </div>
-            <div class="col-md-4">
-
             </div>
         </div>
     </div>
