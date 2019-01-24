@@ -13,19 +13,28 @@
                 {{ range first 10 .Pages }}
                 <h3><a class="text-dark" href="{{.Permalink}}">{{.Title}}</a></h3>
                 <div class="news_meta">
-                    <span class="text-muted">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}  //</span>
-                    <span class="text-warning">Nouveau</span>
+                    <span class="text-muted">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</span>
+                    &middot;
+                    {{ if .Params.Author }}
+                    <span class="text-muted">{{ .Params.Author }}</span>  
+                    {{ end }}
                 </div>
                 <br>
                 <p>{{ .Summary }}</p>
                 <div class="text-right">
-                    <a class="btn btn-outline-dark btn-sm" href="{{.Permalink}}">READ MORE</a>
+                    <a class="btn btn-warning btn-sm" href="{{.Permalink}}">READ MORE</a>
                 </div>
                 <hr>
                 {{ end }}
             </div>
             <div class="col-md-4">
-
+                <h2>Derniers Articles</h2>
+                <br>
+                <ul class="list-group">
+                {{ range first 10 .Pages }}
+                     <li class="list-group-item"><a class="text-dark" href="{{ .Permalink }}">{{ .Title | truncate 40}}</a></li>
+                {{ end }}
+                </ul>   
             </div>
         </div>
     </div>

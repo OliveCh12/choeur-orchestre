@@ -100,3 +100,9 @@ label {
 .form-control:focus{
   box-shadow: inherit !important;
 }
+
+/* Modal Control */
+
+.modal-footer {
+  border-top: none;
+}

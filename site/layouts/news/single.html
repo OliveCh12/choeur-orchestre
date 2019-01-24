@@ -1,24 +1,36 @@
 {{ define "main" }}
 <div class="container" id="single">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12 col-lg-8">
             <article id="main">
-                <h1 class="">{{ .Title }}</h1>
-                <div class="news_meta">
-                <h4 class="text-muted">{{ .PublishDate.Format "Monday, January 2, 2006" }}</h4>
-
-                    <span>By: Jordan Myller </span>//
-                </div>
-                <hr>
-                <div>
-                    <article id="content">
-                        {{ .Content }}
-                    </article>
+                <div class="card">
+                    <div class="card-body">
+                            <h1 class="">{{ .Title }}</h1>
+                            <div class="news_meta">
+                            <h4 class="text-muted">{{ .PublishDate.Format "Monday, January 2, 2006" }}</h4>
+                            {{ if .Params.Author }}
+                                <span>{{ .Params.Author }}</span>     
+                            {{ end }}
+                            </div>
+                            <hr>
+                            <div>
+                                <article id="content">
+                                    {{ .Content }}
+                                </article>
+                            </div>
+                    </div>
                 </div>
             </article>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-12 col-lg-4">
             <aside id="meta">
+                    <h2>Derniers Articles</h2>
+                    <br>
+                    <ul class="list-group">
+                    {{ range first 10 (where .Pages "Section" "News") }}
+                         <li class="list-group-item"><a class="text-dark" href="{{ .Permalink }}">{{ .Title | truncate 40}}</a></li>
+                    {{ end }}
+                    </ul>  
                 <div>
                     <section>
                         <h4 id="date"> {{ .Date.Format "Mon Jan 2, 2006" }} </h4>

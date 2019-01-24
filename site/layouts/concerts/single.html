@@ -1,19 +1,23 @@
 {{ define "main" }}
 <div class="container" id="single">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12 col-lg-8 mb-4">
             <article id="main">
-                <h1 class="">{{ .Title }}</h1>
-                <h4 class="text-muted">{{ .PublishDate.Format "Monday, January 2, 2006" }}</h4>
-                <hr>
-                <div>
-                    <article id="content">
-                        {{ .Content }}
-                    </article>
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="">{{ .Title }}</h1>
+                        <h4 class="text-muted">{{ .PublishDate.Format "Monday, January 2, 2006" }}</h4>
+                        <hr>
+                        <div>
+                            <article id="content">
+                                {{ .Content }}
+                            </article>
+                        </div>
+                    </div>
                 </div>
             </article>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-12 col-lg-4">
             <aside id="meta">
                 <section>
                 <div class="card">
