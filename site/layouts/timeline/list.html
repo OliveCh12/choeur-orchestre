@@ -12,15 +12,13 @@
             <!-- Timeline Section -->
             <div class="col-md-12 col-lg-6 mb-4">
                 <h2 class="mb-4">Historique</h2>
-                <div class="timeline-container timeline-theme-1">
-                    <div class="timeline js-timeline">
-                        {{ range .Pages }}
-                        <div data-time='{{ .Date.Format "2006" }}'>
-                            {{ .Content }}
-                        </div>
-                        {{ end }}
-                    </div>
+                {{ range .Pages }}
+                <div class="timeline" id="timeline" data-time='{{ .Date.Format "January, 2006" }}'>
+                    <span class="text-danger mt-2 mb-2">{{ .Date.Format "January, 2006"}}</span>
+                    <h5>{{ .Title}}</h5>
+                    {{ .Content }}
                 </div>
+                {{ end }}
             </div>
 
             <!-- Archives Sections -->
@@ -39,16 +37,16 @@
                                 <i class="fab fa-youtube mr-2"></i>Vidéo
                             </button>
                         </div>
+                    </div>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/JpsZRYZpu-g"
-                                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
-                                </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/JpsZRYZpu-g"
+                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -58,4 +56,14 @@
         </div>
     </div>
 </main>
+
+<script>
+        const timeline =  document.querySelectorAll(".timeline");
+
+        timeline.classList.add("animated", "bounceOutLeft");
+        timeline.classList.add("cool");
+        
+        
+        console.log('Working ?')
+</script>
 {{ end }}

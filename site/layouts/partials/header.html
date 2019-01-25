@@ -7,7 +7,7 @@
                 <i class="fas fa-caret-square-down"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ml-auto">
+                <div class="navbar-nav text-center ml-auto">
                     {{ $currentPage := . }}
                     {{ range .Site.Menus.main }}
                     <a class="nav-item nav-link {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}">{{ .Name }}</a>
@@ -21,7 +21,7 @@
 
 <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle"><i class="far fa-envelope mr-2"></i>Formulaire de Contact</h5>
