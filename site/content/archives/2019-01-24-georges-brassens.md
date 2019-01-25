@@ -1,6 +1,6 @@
 ---
 title: Georges Brassens
-date: 2010-06-10T21:50:20.077Z
+date: 2007-06-10T21:50:20.077Z
 link: 'https://youtu.be/JpsZRYZpu-g'
 ---
 Concert « Quand un poète enchante le monde » le 2 février 2007 dans la grande salle de l’UNESCO à Paris.

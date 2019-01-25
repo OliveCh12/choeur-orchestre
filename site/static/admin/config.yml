@@ -49,6 +49,17 @@ collections:
       - {label: "Date", name: "date", widget: "date"}
       - {label: "Déscription", name: "body", widget: "markdown"}
 
+  - name: "archives"
+    label: "Archives"
+    folder: "site/content/archives"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "date"}
+      - {label: "YouTube (Lien)", name: "link", widget: "string"}
+      - {label: "Description", name: "body", widget: "text"}
+
 
 
 
