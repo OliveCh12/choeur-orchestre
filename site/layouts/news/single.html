@@ -1,36 +1,48 @@
 {{ define "main" }}
 <div class="container" id="single">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <article id="main">
                 <div class="card">
-                    <div class="card-body">
-                            <h1 class="">{{ .Title }}</h1>
-                            <div class="news_meta">
-                            <h4 class="text-muted">{{ .PublishDate.Format "Monday, January 2, 2006" }}</h4>
+                    <div class="card-header">
+                        <h1 class="card-title news-title">{{ .Title }}</h1>
+                        <div class="news_meta">
+                            <span class="text-muted">{{ .PublishDate.Format "January 2, 2006" }}</span>
+                            &middot;
                             {{ if .Params.Author }}
-                                <span>{{ .Params.Author }}</span>     
+                            <span class="text-primary">{{ .Params.Author }}</span>
                             {{ end }}
-                            </div>
-                            <hr>
-                            <div>
-                                <article id="content">
-                                    {{ .Content }}
-                                </article>
-                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <article id="content">
+                                {{ .Content }}
+                            </article>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="news-links">
+                            {{ with .PrevInSection }}
+                                <a class="previous" href="{{.Permalink}}"><i class="fas fa-angle-double-left mr-2"></i>Précedent</a>
+                            {{ end }}
+                            {{ with .NextInSection }}
+                                <a class="next" href="{{.Permalink}}">Suivant<i class="fas fa-angle-double-right ml-2"></i></a>
+                            {{ end }}
+                        </div>
                     </div>
                 </div>
             </article>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-2">
             <aside id="meta">
-                    <h2>Derniers Articles</h2>
-                    <br>
-                    <ul class="list-group">
+                <h2>Derniers Articles</h2>
+                <br>
+                <ul class="list-group">
                     {{ range first 10 (where .Pages "Section" "News") }}
-                         <li class="list-group-item"><a class="text-dark" href="{{ .Permalink }}">{{ .Title | truncate 40}}</a></li>
+                    <li class="list-group-item"><a class="text-dark" href="{{ .Permalink }}">{{ .Title | truncate 40}}</a></li>
                     {{ end }}
-                    </ul>  
+                </ul>
                 <div>
                     <section>
                         <h4 id="date"> {{ .Date.Format "Mon Jan 2, 2006" }} </h4>
@@ -49,14 +61,6 @@
                         <li> <a href="{{ "tags" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
                         {{ end }}
                     </ul>
-                    {{ end }}
-                </div>
-                <div>
-                    {{ with .PrevInSection }}
-                    <a class="previous" href="{{.Permalink}}"> {{.Title}}</a>
-                    {{ end }}
-                    {{ with .NextInSection }}
-                    <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
                     {{ end }}
                 </div>
             </aside>
