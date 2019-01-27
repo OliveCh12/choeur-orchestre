@@ -11,7 +11,7 @@
             <div class="col-md-8">
                 <!-- Ranges through content/news/*.md -->
                 {{ $newslist := (where .Site.Pages "Section" "news")}}
-                <span class="badge badge-secondary">{{ len $newslist }}</span>
+                <span class="badge badge-secondary">Nombre d'Articles : {{ len $newslist }}</span>
                 {{ range first 3 $newslist }}
                 <a href="">
                 <h3><a class="text-dark" href="{{.Permalink}}">{{.Title}}</a></h3>
