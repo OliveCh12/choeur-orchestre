@@ -1,7 +1,7 @@
 baseurl = "/"
 languageCode = "en-us"
 languageLang = "en"
-title = "Choeur & Orchestre, les Voix Unies"
+title = "Choeur & Orchestre"
 
 # RSS, categories and tags disabled for an easy start
 # See configuration options for more details: 
@@ -15,12 +15,14 @@ price = 0
 adress = "adress"
 startdate = 2019-01-30T18:30:24.144Z
 enddate = 2019-01-30T18:30:24.144Z
+youtube = "R5qHWnbyV3w"
 
 sectionPagesMenu = "main"
 
 
 [menu]
 
+  # Main Menu
   [[menu.main]]
     name = "Accueil"
     url = "/"
@@ -37,8 +39,8 @@ sectionPagesMenu = "main"
     weight = 3
 
     [[menu.main]]
-    name = "Activités"
-    url = "/activities/"
+    name = "Médias"
+    url = "/medias/"
     weight = 3
 
      [[menu.main]]
@@ -46,7 +48,18 @@ sectionPagesMenu = "main"
     url = "/timeline/"
     weight = 4
 
-    # [[menu.main]]
-    # name = "Contact"
-    # url = "/contact/"
-    # weight = 5
+    # Footer Menu
+    [[menu.footer]]
+    name = "Mentions Légales"
+    url = "/legals_mentions/"
+    weight = 1
+
+    [[menu.footer]]
+    name = "Politique de confidentialité"
+    url = "/privacy_policy/"
+    weight = 2
+
+    [[menu.footer]]
+    name = "A propos"
+    url = "/about/"
+    weight = 3
