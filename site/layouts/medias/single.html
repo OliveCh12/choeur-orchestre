@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section id="main">
+    <div class="container" id="single">
+        <div class="row">
+            <div class="col-lg-8">
+                <a href="{{ absURL "medias" }}" class="btn btn-dark btn-sm mb-3"><i class="fas fa-video mr-2"></i>Retour
+                    aux Médias</a>
+                <div class="card" style="margin-bottom: 30px">
+                    <iframe height="315" src="https://www.youtube.com/embed/{{ .Params.youtube }}" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </iframe>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">{{ .Title }}</h3>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</h6>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ .Content }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <h4>Média Suivant<i class="fas fa-angle-double-right ml-2"></i></h4>
+                <ul class="list-group">
+                    {{ with .NextInSection }}
+                    <li class="list-group-item"><a class="previous" href="{{.Permalink}}"> {{.Title}}</a></li>
+                    {{ end }}
+                </ul>
+                <hr>
+                <h4>Média Précédent<i class="fas fa-angle-double-left ml-2"></i></h4>
+                <ul class="list-group">
+                    {{ with .PrevInSection }}
+                    <li class="list-group-item"><a class="previous" href="{{.Permalink}}"> {{.Title}}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+</section>
+{{ end }}

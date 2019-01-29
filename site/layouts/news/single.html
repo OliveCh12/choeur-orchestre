@@ -1,7 +1,10 @@
 {{ define "main" }}
 <div class="container" id="single">
     <div class="row">
-        <div class="col-md-10">
+
+        {{/* Column 1 */}}
+        <div class="col-lg-12 col-md-12">
+            <a href="{{ absURL "news" }}" class="btn btn-dark btn-sm mb-3"><i class="far fa-newspaper mr-2"></i>Retour aux Actualités</a>
             <article id="main">
                 <div class="card">
                     <div class="card-header">
@@ -10,32 +13,32 @@
                             <span class="text-muted">{{ .PublishDate.Format "January 2, 2006" }}</span>
                             &middot;
                             {{ if .Params.Author }}
-                            <span class="text-primary">{{ .Params.Author }}</span>
+                            <span class="text-dark">{{ .Params.Author }}</span>
                             {{ end }}
                         </div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <article id="content">
-                                {{ .Content }}
-                            </article>
+                            {{ .Content }}
                         </div>
                     </div>
                     <div class="card-footer">
                         <div class="news-links">
                             {{ with .PrevInSection }}
-                                <a class="previous" href="{{.Permalink}}"><i class="fas fa-angle-double-left mr-2"></i>Précedent</a>
+                            <a class="previous text-muted" href="{{.Permalink}}"><i class="fas fa-angle-double-left mr-2"></i>Précedent</a>
                             {{ end }}
                             {{ with .NextInSection }}
-                                <a class="next" href="{{.Permalink}}">Suivant<i class="fas fa-angle-double-right ml-2"></i></a>
+                            <a class="next text-muted" href="{{.Permalink}}">Suivant<i class="fas fa-angle-double-right ml-2"></i></a>
                             {{ end }}
                         </div>
                     </div>
                 </div>
             </article>
         </div>
-        <div class="col-md-2">
-            <aside id="meta">
+
+        {{/*  Column 2  */}}
+        <div class="col-lg-12">
+            {{/*  <aside id="meta">
                 <h2>Derniers Articles</h2>
                 <br>
                 <ul class="list-group">
@@ -63,7 +66,7 @@
                     </ul>
                     {{ end }}
                 </div>
-            </aside>
+            </aside>  */}}
         </div>
     </div>
 </div>

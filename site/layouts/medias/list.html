@@ -1,0 +1,34 @@
+{{ define "main" }}
+<main>
+    <header class="main__header">
+        <div class="container">
+            <h1>{{.Title}}</h1>
+            {{.Content}}
+        </div>
+    </header>
+    <div class="container" id="single">
+            <div class="row">
+            {{ $paginator := .Paginate (where .Pages "Section" "medias") 6 }}
+            {{/* {{ range first 3 $newslist }} */}}
+            {{ range $paginator.Pages }}
+            <div class="col-lg-4 col-md-6">
+                <div class="card" style="margin-bottom: 30px;" id="card-hover">
+                    {{/*  <iframe height="250"e  src="https://www.youtube.com/embed/1c6NeGbxk_I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  */}}
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a></h5>
+                        <p class="card-text">{{ .Summary | truncate 200}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"><i class="fas fa-video mr-2"></i>{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</small>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        {{ template "pagination.html" . }}
+
+    </div>
+
+
+</main>
+{{ end }}

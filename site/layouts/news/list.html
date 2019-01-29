@@ -9,34 +9,37 @@
     <div class="container" id="single">
         <div class="row">
             <div class="col-md-8">
+
                 <!-- Ranges through content/news/*.md -->
-                {{ $newslist := (where .Site.Pages "Section" "news")}}
-                <span class="badge badge-secondary">Nombre d'Articles : {{ len $newslist }}</span>
-                {{ range first 3 $newslist }}
+                {{ $newslist := (where .Pages "Section" "news") }}
+                {{ $paginator := .Paginate (where .Pages "Section" "news") 3 }}
+                {{/*  {{ range first 3 $newslist }}  */}}
+                {{ range $paginator.Pages }}
                 <a href="">
                 <h3><a class="text-dark" href="{{.Permalink}}">{{.Title}}</a></h3>
                 <div class="news_meta">
-                    <span class="text-primary">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</span>
-                    &middot;
+                    <span class="text-dark">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</span>
                     {{ if .Params.Author }}
+                    &middot;
                     <span class="text-muted">{{ .Params.Author }}</span>  
                     {{ end }}
                 </div>
                 <br>
                 <p>{{ .Summary }}</p>
                 <div class="text-right">
-                    <a class="" href="{{.Permalink}}">Lire l'Article<i class="fas fa-long-arrow-alt-right ml-2"></i></a>
+                    <a class="btn btn-light btn-sm" href="{{.Permalink}}">Lire l'Article<i class="fas fa-long-arrow-alt-right ml-2"></i></a>
                 </div>
                 <hr>
                 </a>
                 {{ end }}
+                {{ template "pagination.html" . }}
             </div>
             <div class="col-md-4">
                 <h2>Derniers Articles</h2>
                 <br>
                 <ul class="list-group">
                 {{ range first 10 .Pages }}
-                     <li class="list-group-item"><a class="text-dark" href="{{ .Permalink }}">{{ .Title | truncate 40}}</a></li>
+                     <li class="list-group-item"><a href="{{ .Permalink }}">{{ .Title | truncate 40}}</a></li>
                 {{ end }}
                 </ul>   
             </div>

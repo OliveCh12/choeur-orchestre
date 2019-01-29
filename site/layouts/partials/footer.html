@@ -1,5 +1,22 @@
 <footer>
-    <div class="container text-center">
-        Copyright &copy; {{ now.Format "2006" }} &middot; All rights reserved &middot; <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    {{/*  Footer Top  */}}
+    <div class="footer-top">
+        <div class="container">
+            <ul class="nav">
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.footer }}
+                <li class="nav-item">
+                    <a class="nav-link {{if or ($currentPage.IsMenuCurrent "footer" .) ($currentPage.HasMenuCurrent "footer" .) }} active{{end}} text-light" href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+    {{/*  Footer Down  */}}
+    <div class="footer-bottom">
+        <div class="container">
+            Copyright &copy; {{ now.Format "2006" }} &middot; All rights reserved &middot; <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        </div>
+    </div>
     </div>
 </footer>
