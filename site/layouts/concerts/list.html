@@ -13,47 +13,27 @@
                 <h3>Prochainement</h3>
                 <br>
                 <!-- Ranges through content/news/*.md -->
-                {{ range first 1 .Pages }}
+                
+                {{ range first 4 .Pages }}
                 <a href="{{.Permalink}}" style="display: block !important">
                     <div class="card mb-4" id="card-hover">
                         <div class="card-body">
-                            <h3><a class="text-dark" href="{{.Permalink}}">{{.Title}} </a><span class="badge badge-warning" id="newEvent">Prochainement</span></h3>
+                            <h3><a class="text-dark" href="{{.Permalink}}">{{.Title}} </a></h3>
+                            <hr>
                             <div class="news_meta">
-                                <span class="text-warning">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }},
-                                    {{ .Date.Format "2006" }}</span>
+                                <strong class="text-dark">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</strong>         
                                 &middot;
-                                <span><strong class="text-capitalize">{{ .Type }}</strong></span>
+                                <span class="text-capitalize text-secondary">{{ .Type }}</span>
                                 &middot;
                                 {{ if (isset .Params "price") }}
-                                <span>Entrée : {{ .Params.price }} €</span>
+                                <span class="text-secondary">Entrée : {{ .Params.price }} €</span>
                                 {{ else }}
                                 <span>Entrée : Gratuit</span>
                                 {{ end }}
-                                <br>
-                                <span class="text-muted">{{ .Params.adress }}</span>
-                            </div>
-                            <br>
-                            <p>{{slicestr .Summary 0 200}}...</p>
-                        </div>
-                    </div>
-                 </a>
-                {{ end }}
-
-                {{ range first 2 (after 1 .Pages) }}
-                <a href="{{.Permalink}}" style="display: block">
-                    <div class="card mb-4" id="card-hover">
-                        <div class="card-body">
-                            <h3><a class="text-dark" href="{{.Permalink}}">{{.Title}}</h3>
-                            <div class="news_meta">
-                                <span class="text-warning">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }},
-                                    {{ .Date.Format "2006" }}</span>
                                 &middot;
-                                <span><strong class="text-capitalize">{{ .Type }}</strong></span>
-                                &middot;
-                                {{ if (isset .Params "price") }}
-                                <span>Entrée : {{ .Params.price }} €</span>
-                                {{ else }}
-                                <span>Entrée : Gratuit</span>
+                                {{ if eq .Date.YearDay now.YearDay }}<span class="badge badge-success">Aujourd'hui</span>
+                                {{ else if .Date.After now }}<span class="badge badge-dark">Prochainement</span>
+                                {{ else if .Date.Before now }}<span class="badge badge-secondary">Terminé</span>
                                 {{ end }}
                                 <br>
                                 <span class="text-muted">{{ .Params.adress }}</span>
@@ -70,7 +50,7 @@
                     <br>
                     {{ range after 3 .Pages  }}
                     <h3><a class="text-muted" href="{{.Permalink}}">{{.Title}}</a></h3>
-                    <span class="text-muted">{{ .PublishDate.Format "January 2, 2006" }}</span>
+                    <span class="text-muted">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</span>
                     <br><br>
                     <p class="text-muted">{{slicestr .Summary 0 100}}...</p>
                     <div class="text-right">

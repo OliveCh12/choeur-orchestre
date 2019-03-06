@@ -7,17 +7,15 @@
             <a href="{{ absURL "news" }}" class="btn btn-dark btn-sm mb-3"><i class="far fa-newspaper mr-2"></i>Retour aux Actualités</a>
             <article id="main">
                 <div class="card">
-                    <div class="card-header">
-                        <h1 class="card-title news-title">{{ .Title }}</h1>
-                        <div class="news_meta">
-                            <span class="text-muted">{{ .PublishDate.Format "January 2, 2006" }}</span>
-                            &middot;
-                            {{ if .Params.Author }}
-                            <span class="text-dark">{{ .Params.Author }}</span>
-                            {{ end }}
-                        </div>
-                    </div>
                     <div class="card-body">
+                            <h1 class="card-title news-title">{{ .Title }}</h1>
+                            <div class="news_meta">
+                                <span class="text-muted">{{ .PublishDate.Format "January 2, 2006" }}</span>
+                                &middot;
+                                {{ if .Params.Author }}
+                                <span class="text-dark">{{ .Params.Author }}</span>
+                                {{ end }}
+                                <hr>
                         <div>
                             {{ .Content }}
                         </div>

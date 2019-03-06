@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                            <a href="/concerts/" class="btn btn-light"><i class="fas fa-arrow-circle-left mr-2"></i>Retour aux actualités</a>
+                        <a href="/concerts/" class="btn btn-light"><i class="fas fa-arrow-circle-left mr-2"></i>Retour aux actualités</a>
                     </div>
                 </div>
             </article>
@@ -26,6 +26,10 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"></i>Début : {{ .Date.Format "15:04"}}</h6>
+                        {{ if eq .Date.YearDay now.YearDay }}<span class="badge badge-success">Aujourd'hui</span>
+                        {{ else if .Date.After now }}<span class="badge badge-dark">Prochainement</span>
+                        {{ else if .Date.Before now }}<span class="badge badge-secondary">Terminé</span>
+                        {{ end }}
                         <hr>
                         <p class="card-text"><i class="fas fa-map-marker-alt mr-2"></i> {{ .Params.adress }}</p>
                         <hr>
