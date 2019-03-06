@@ -1,7 +1,7 @@
 ---
 layout: 
 title: Rassemblement des nations
-date: 2019-02-14T18:00:32.353Z
+date: 2019-03-07T18:00:32.353Z
 adress: '34 Avenue du Général de Gaulle, 75001, Paris'
 price: '0'
 publishdate: 2019-01-22T16:26:32.364Z
