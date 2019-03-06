@@ -1,11 +1,11 @@
 {{ define "main" }}
 <main>
-<header class="main__header">
+<div class="main__header">
     <div class="container">
-        <h1 class="header-title">{{.Title}}</h1>
-        {{.Content}}
+            <h2>{{.Title}}</h2>
+        <p>{{ .Params.subtitle }}</p>
     </div>
-</header>
+</div>
     <div class="container" id="single">
         <div class="row">
             <div class="col-md-8">

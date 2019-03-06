@@ -2,12 +2,11 @@
 <div class="container" id="single">
     <div class="row">
         <div class="col-md-12 col-lg-8 mb-4">
-             <a href="{{ absURL "concerts" }}" class="btn btn-dark btn-sm mb-3"><i class="far fa-newspaper mr-2"></i>Retour aux Concerts</a>
             <article id="main">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="">{{ .Title }}</h1>
-                        <h4 class="text-muted">{{ .PublishDate.Format "Monday, January 2, 2006" }}</h4>
+                        <h1 class="single-concerts-title">{{ .Title }}</h1>
+                        <strong class="text-muted">{{ index $.Site.Data.jours (printf "%d" .Date.Month) }} {{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</strong>
                         <hr>
                         <div>
                             <article id="content">
@@ -15,54 +14,85 @@
                             </article>
                         </div>
                     </div>
+                    <div class="card-footer">
+                            <a href="/concerts/" class="btn btn-light"><i class="fas fa-arrow-circle-left mr-2"></i>Retour aux actualités</a>
+                    </div>
                 </div>
             </article>
         </div>
         <div class="col-md-12 col-lg-4">
             <aside id="meta">
-                <section>
                 <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</h5>
-                          <h6 class="card-subtitle mb-2 text-muted"></i>Début : {{ .Date.Format "15:04"}}</h6>
-                          <hr>
-                          <p class="card-text"><i class="fas fa-map-marker-alt mr-2"></i> {{ .Params.adress }}</p>
-                          <hr>
-                          {{ if ( isset .Params "price") }}
-                          <p class="card-text"><i class="fas fa-ticket-alt mr-2"></i> Entrée : {{ .Params.price }} €</p>
-                          {{ else }}   
-                          <p class="card-text"><i class="fas fa-ticket-alt"></i> Entrée : Gratuit</p>
-                          {{ end }}
-                        </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ .Date.Format "2" }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Format "2006" }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></i>Début : {{ .Date.Format "15:04"}}</h6>
+                        <hr>
+                        <p class="card-text"><i class="fas fa-map-marker-alt mr-2"></i> {{ .Params.adress }}</p>
+                        <hr>
+                        {{ if ( isset .Params "price") }}
+                        <p class="card-text"><i class="fas fa-ticket-alt mr-2"></i> Entrée : {{ .Params.price }} €</p>
+                        {{ else }}
+                        <p class="card-text"><i class="fas fa-ticket-alt"></i> Entrée : Gratuit</p>
+                        {{ end }}
+                    </div>
+                    <!-- MapBox API -->
                     <div id="map" class="map"></div>
-
-                      </div>
-                    </section>
-                    {{ with .Params.topics }}
-                    <ul id="topics">
-                        {{ range . }}
-                        <li><a href="{{ "topics" | absURL}}{{ . | urlize }}">{{ . }}</a> </li>
-                        {{ end }}
-                    </ul>
-                    {{ end }}
-                    {{ with .Params.tags }}
-                    <ul id="tags">
-                        {{ range . }}
-                        <li> <a href="{{ "tags" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
-                        {{ end }}
-                    </ul>
-                    {{ end }}
-                </div>
-                <div>
-                    {{ with .PrevInSection }}
-                    <a class="previous" href="{{.Permalink}}"> {{.Title}}</a>
-                    {{ end }}
-                    {{ with .NextInSection }}
-                    <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
-                    {{ end }}
                 </div>
             </aside>
         </div>
+        </div>
     </div>
 </div>
+
+<script src='https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js'></script>
+<script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+<script>
+    mapboxgl.accessToken =
+        'pk.eyJ1Ijoib2xpdmVjaDEyIiwiYSI6ImNqc3hpcHA0dzAzeXI0M3BhendndTF6N20ifQ.I5n2xn-wRpPfFPcw9kJyMg';
+    // eslint-disable-next-line no-undef
+    var mapboxClient = mapboxSdk({
+        accessToken: mapboxgl.accessToken
+    });
+    mapboxClient.geocoding.forwardGeocode({
+            query: '{{ .Params.adress }}',
+            autocomplete: false,
+            limit: 1
+        })
+        .send()
+        .then(function (response) {
+            if (response && response.body && response.body.features && response.body.features.length) {
+                var feature = response.body.features[0];
+
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v9',
+                    center: feature.center,
+                    zoom: 12
+                });
+                new mapboxgl.Marker()
+                    .setLngLat(feature.center)
+                    .addTo(map);
+            }
+        });
+  </script>
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
 {{ end }}

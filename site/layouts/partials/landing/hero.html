@@ -27,9 +27,13 @@
     </a>
 </div> */}}
 
-<header class="main-hero">
-    <div class="container">
-        <h1 class="hero-title">{{.Title}}</h1>
-        <h2 class="hero-subtitle">Les Voix Unies</h2>
+{{ with .Site.Params.hero }}
+<div class="hero">
+    <img src="{{ .pre }}" class="hero-img">
+    <div class="hero-content">
+        <h2 class="hero-title">{{ .title }}</h2>
+        <p class="hero-subtitle">{{ .subtitle }}</p>
+        <a class="hero-link" href="">Découvrir <i class="fas fa-long-arrow-alt-right ml-2"></i></a>
     </div>
-</header>
+</div>
+{{ end }}

@@ -1,10 +1,10 @@
 {{ define "main" }}
-<header class="main__header">
+<div class="main__header">
     <div class="container">
-        <h1>{{.Title}}</h1>
-        {{.Content}}
+        <h2>{{.Title}}</h2>
+        <p>{{ .Params.subtitle }}</p>
     </div>
-</header>
+</div>
 <main>
     <div class="container" id="single">
         <div class="row">
