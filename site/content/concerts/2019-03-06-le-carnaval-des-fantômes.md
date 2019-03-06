@@ -1,6 +1,5 @@
 ---
 title: Le Carnaval des Fantômes
-type: Concert
 date: 2019-05-15T20:30:19.345Z
 adress: '30 Boulevard Poissonnière, 75009 Paris'
 price: 15

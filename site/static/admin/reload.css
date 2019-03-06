@@ -8,3 +8,12 @@ body {
 body {
   padding: 20px;
 }
+h1{
+  font-weight: bolder;
+}
+p{
+  line-height: 1.3;
+}
+img {
+  width: 100%;
+}
